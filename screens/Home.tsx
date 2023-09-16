@@ -1,12 +1,21 @@
 import { View, Text } from "react-native";
+import Layout from "../components/chat/ChatLayout";
+import ListMessage from "../components/chat/ListMessage";
+import InputMessage from "../components/chat/InputMessage";
+import { useState } from "react";
 
 function HomeScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello World</Text>
-      </View>
-    );
-  }
+  let state = false
+  return (
 
-  
-  export default HomeScreen
+
+       <Layout>
+        <ListMessage />
+        <InputMessage />
+      </Layout> 
+
+  );
+}
+
+
+export default HomeScreen

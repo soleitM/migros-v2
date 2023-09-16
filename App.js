@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/MaterialIcons"; // You may need to install a vector icon library
-import IconCom from "react-native-vector-icons/MaterialCommunityIcons"
+import IconCom from "react-native-vector-icons/MaterialCommunityIcons";
 
 import HomeScreen from "./screens/Home";
 import ListeScreen from "./screens/Liste";
@@ -12,15 +12,7 @@ import WalletScreen from "./screens/Wallet";
 import GoScreen from "./screens/Go";
 import DeliverScreen from "./screens/Deliver";
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-      <Text> Hello world</Text>
-      {/* <Icon name="rocket" size={30} color="#900" /> */}
-    </View>
-  );
-}
+import { DataProvider } from "./context/DataProvider";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,94 +22,96 @@ export default function App() {
   };
 
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
-          options={{
-            tabBarLabelStyle: {
-              fontSize: 16,
-              marginBottom: -10,
-              color: "black",
-            },
+    <DataProvider>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen
+            options={{
+              tabBarLabelStyle: {
+                fontSize: 16,
+                marginBottom: -10,
+                color: "black",
+              },
 
-            tabBarIcon: ({ focused, tintColor }) => {
-              const color = `${focused ? "orange" : "black"}`;
+              tabBarIcon: ({ focused, tintColor }) => {
+                const color = `${focused ? "orange" : "black"}`;
 
-              return (
-                <Text style={{ fontSize: 35, fontWeight: 600, color: color }}>
-                  M
-                </Text>
-              );
-            },
-          }}
-          name="Home"
-          component={HomeScreen}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabelStyle: {
-              fontSize: 16,
-              marginBottom: -10,
-              color: "black",
-            },
+                return (
+                  <Text style={{ fontSize: 35, fontWeight: 600, color: color }}>
+                    M
+                  </Text>
+                );
+              },
+            }}
+            name="Home"
+            component={HomeScreen}
+          />
+          <Tab.Screen
+            options={{
+              tabBarLabelStyle: {
+                fontSize: 16,
+                marginBottom: -10,
+                color: "black",
+              },
 
-            tabBarIcon: ({ focused, tintColor }) => {
-              const iconName = `newspaper${focused ? "" : "-outline"}`;
-              return <Ionicons name={iconName} size={35} color={tintColor} />;
-            },
-          }}
-          name="Liste"
-          component={ListeScreen}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabelStyle: {
-              fontSize: 16,
-              marginBottom: -10,
-              color: "black",
-            },
+              tabBarIcon: ({ focused, tintColor }) => {
+                const iconName = `newspaper${focused ? "" : "-outline"}`;
+                return <Ionicons name={iconName} size={35} color={tintColor} />;
+              },
+            }}
+            name="Liste"
+            component={ListeScreen}
+          />
+          <Tab.Screen
+            options={{
+              tabBarLabelStyle: {
+                fontSize: 16,
+                marginBottom: -10,
+                color: "black",
+              },
 
-            tabBarIcon: ({ focused, tintColor }) => {
-              const iconName = `wallet${focused ? "" : "-outline"}`;
-              return <Ionicons name={iconName} size={35} color={tintColor} />;
-            },
-          }}
-          name="Wallet"
-          component={WalletScreen}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabelStyle: {
-              fontSize: 16,
-              marginBottom: -10,
-              color: "black",
-            },
+              tabBarIcon: ({ focused, tintColor }) => {
+                const iconName = `wallet${focused ? "" : "-outline"}`;
+                return <Ionicons name={iconName} size={35} color={tintColor} />;
+              },
+            }}
+            name="Wallet"
+            component={WalletScreen}
+          />
+          <Tab.Screen
+            options={{
+              tabBarLabelStyle: {
+                fontSize: 16,
+                marginBottom: -10,
+                color: "black",
+              },
 
-            tabBarIcon: ({ focused, tintColor }) => {
-              const iconName = `receipt${focused ? "" : "-outline"}`;
-              return <Ionicons name={iconName} size={35} color={tintColor} />;
-            },
-          }}
-          name="Go"
-          component={GoScreen}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabelStyle: {
-              fontSize: 16,
-              marginBottom: -10,
-              color: "black",
-            },
+              tabBarIcon: ({ focused, tintColor }) => {
+                const iconName = `receipt${focused ? "" : "-outline"}`;
+                return <Ionicons name={iconName} size={35} color={tintColor} />;
+              },
+            }}
+            name="Go"
+            component={GoScreen}
+          />
+          <Tab.Screen
+            options={{
+              tabBarLabelStyle: {
+                fontSize: 16,
+                marginBottom: -10,
+                color: "black",
+              },
 
-            tabBarIcon: ({ focused, tintColor }) => {
-              const iconName = `truck-delivery${focused ? "" : "-outline"}`;
-              return <IconCom name={iconName} size={35} color={tintColor} />;
-            },
-          }}
-          name="Settings"
-          component={DeliverScreen}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+              tabBarIcon: ({ focused, tintColor }) => {
+                const iconName = `truck-delivery${focused ? "" : "-outline"}`;
+                return <IconCom name={iconName} size={35} color={tintColor} />;
+              },
+            }}
+            name="Settings"
+            component={DeliverScreen}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </DataProvider>
   );
 }

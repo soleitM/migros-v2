@@ -12,7 +12,7 @@ const Message = ({ message }: MessageProps) => {
 
 	const copyToClipboard = async  () => {
 		await Clipboard.setStringAsync(message.text);
-		ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
+		// ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
 	};
 
 	return (

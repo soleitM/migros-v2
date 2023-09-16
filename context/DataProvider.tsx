@@ -1,4 +1,4 @@
-import React, { useState,createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 import { MessageType } from '../types/types';
 
@@ -13,7 +13,7 @@ export const DataProvider = ({ children }: Props) => {
   const [textInput, setTextInput] = useState<MessageType>({} as MessageType);
 
   return (
-    <DataContext.Provider value={{ textInput, setTextInput }}>
+    <DataContext.Provider value={{ textInput , setTextInput }}>
         {children}
     </DataContext.Provider>
   )

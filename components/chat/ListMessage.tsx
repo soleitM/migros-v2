@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
 import uuid from 'react-uuid';
 
-// import { messagesData } from '../data/messages';
+ import { messagesData } from '../../data/messages';
 import { useFetchMessage } from '../../hooks/useFetchMessage';
 import Message from './Message';
 import { DataContext } from '../../context/DataProvider';
@@ -16,11 +16,12 @@ const ListMessage = () => {
 	
 	const { textInput } = useContext<any>(DataContext);
 
-	console.log('textInput', textInput.text);
+	 console.log('textInput', textInput.text);
 	
-	const { data, isLoading } = useFetchMessage(textInput.text);
+	 const { data, isLoading } = useFetchMessage(textInput.text);
 
-	console.log('getMessageOutput: ', data.text );
+
+	 console.log('getMessageOutput: ', data.text );
 
 	useEffect(() => {
 		
