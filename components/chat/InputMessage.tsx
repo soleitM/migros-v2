@@ -11,7 +11,6 @@ const InputMessage = () => {
 
 	const { setTextInput } = useContext<any>(DataContext);
 	const [text, setText] = useState<string>('');
-
 	const handleSendMessage = () => {
 
 		if (!text.trim()) return;
@@ -76,6 +75,7 @@ const styles = StyleSheet.create({
 		width: '15%',
 		height: 50,
 		marginLeft: 10,
+		marginEnd:10,
 		textAlign: 'center',
 		borderColor: '#10ac84',
 		borderWidth: 1,

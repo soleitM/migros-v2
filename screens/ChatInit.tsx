@@ -2,8 +2,12 @@ import { View, Text, Button, StyleSheet, Pressable } from "react-native";
 import { BalloonDog } from "../assets/BalloonDog";
 
 
-
-function ChatInit() {
+interface Props {
+	onContinue: () => void;
+}
+function ChatInit(
+    {onContinue} : Props
+) {
 
 
     return (
@@ -14,7 +18,7 @@ function ChatInit() {
                 questions and receive articles using
                 artificial intelligence assistant</Text>
             <BalloonDog />
-            <Pressable style={styles.button}  onPress={() => console.log("some")} >
+            <Pressable style={styles.button}  onPress={onContinue} >
                  <Text>Continue</Text>
                  </Pressable>
         </View>

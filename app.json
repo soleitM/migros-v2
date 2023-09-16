@@ -1,6 +1,14 @@
 {
   "expo": {
     "name": "my-app-animated",
-    "slug": "my-app-animated"
+    "slug": "my-app-animated",
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ]
   }
 }

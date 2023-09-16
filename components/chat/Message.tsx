@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ToastAndroid, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 
 import { MessageType } from '../../types/types';
