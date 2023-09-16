@@ -13,6 +13,7 @@ import GoScreen from "./screens/Go";
 import DeliverScreen from "./screens/Deliver";
 
 import { DataProvider } from "./context/DataProvider";
+import ChatInit  from "./screens/ChatInit";
 
 const Tab = createBottomTabNavigator();
 

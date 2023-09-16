@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 		padding: 10,
 		margin: 10,
 		borderRadius: 10,
+		alignSelf: 'flex-start',
 	},
 	messageyou: {
 		backgroundColor: '#285B7A',

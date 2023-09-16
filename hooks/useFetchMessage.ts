@@ -31,6 +31,7 @@ export const useFetchMessage = (message: string): state => {
 
   const loadMockMessage = async () => {
     const data = await getMockMessages(message);
+    console.log(data, "data mocked")
     setState({ data, isLoading: false });
   };
 

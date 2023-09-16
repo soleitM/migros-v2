@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: 5,
 		paddingBottom: 35,
-		justifyContent: 'center',
-		alignItems: 'center',
+		// justifyContent: 'center',
+		// alignItems: 'center',
+		width:'100%',
 		backgroundColor: '#222f3e',
 	},
 });

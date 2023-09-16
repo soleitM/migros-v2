@@ -5,16 +5,14 @@ import InputMessage from "../components/chat/InputMessage";
 import { useState } from "react";
 
 function HomeScreen() {
-  let state = false
-  return (
+
+  return  (
 
 
        <Layout>
         <ListMessage />
         <InputMessage />
-      </Layout> 
-
-  );
+      </Layout>   )  
 }
 
 
