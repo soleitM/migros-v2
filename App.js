@@ -1,46 +1,123 @@
-import Animated, {
-  useSharedValue,
-  withTiming,
-  useAnimatedStyle,
-  Easing,
-} from "react-native-reanimated";
-import { View, Button } from "react-native";
+import * as React from "react";
+import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/MaterialIcons"; // You may need to install a vector icon library
+import IconCom from "react-native-vector-icons/MaterialCommunityIcons"
 
-export default function AnimatedStyleUpdateExample(props) {
-  const randomWidth = useSharedValue(10);
+import HomeScreen from "./screens/Home";
+import ListeScreen from "./screens/Liste";
+import WalletScreen from "./screens/Wallet";
+import GoScreen from "./screens/Go";
+import DeliverScreen from "./screens/Deliver";
 
-  const config = {
-    duration: 500,
-    easing: Easing.bezier(0.5, 0.01, 0, 1),
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+      <Text> Hello world</Text>
+      {/* <Icon name="rocket" size={30} color="#900" /> */}
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  const color = ({ focused }) => {
+    `${focused} ? "orange" : "black"`;
   };
 
-  const style = useAnimatedStyle(() => {
-    return {
-      width: withTiming(randomWidth.value, config),
-    };
-  });
-
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      <Animated.View
-        style={[
-          { width: 100, height: 80, backgroundColor: "black", margin: 30 },
-          style,
-        ]}
-      />
-      <Button
-        title="toggle"
-        onPress={() => {
-          randomWidth.value = Math.random() * 350;
-        }}
-      />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen
+          options={{
+            tabBarLabelStyle: {
+              fontSize: 16,
+              marginBottom: -10,
+              color: "black",
+            },
+
+            tabBarIcon: ({ focused, tintColor }) => {
+              const color = `${focused ? "orange" : "black"}`;
+
+              return (
+                <Text style={{ fontSize: 35, fontWeight: 600, color: color }}>
+                  M
+                </Text>
+              );
+            },
+          }}
+          name="Home"
+          component={HomeScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabelStyle: {
+              fontSize: 16,
+              marginBottom: -10,
+              color: "black",
+            },
+
+            tabBarIcon: ({ focused, tintColor }) => {
+              const iconName = `newspaper${focused ? "" : "-outline"}`;
+              return <Ionicons name={iconName} size={35} color={tintColor} />;
+            },
+          }}
+          name="Liste"
+          component={ListeScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabelStyle: {
+              fontSize: 16,
+              marginBottom: -10,
+              color: "black",
+            },
+
+            tabBarIcon: ({ focused, tintColor }) => {
+              const iconName = `wallet${focused ? "" : "-outline"}`;
+              return <Ionicons name={iconName} size={35} color={tintColor} />;
+            },
+          }}
+          name="Wallet"
+          component={WalletScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabelStyle: {
+              fontSize: 16,
+              marginBottom: -10,
+              color: "black",
+            },
+
+            tabBarIcon: ({ focused, tintColor }) => {
+              const iconName = `receipt${focused ? "" : "-outline"}`;
+              return <Ionicons name={iconName} size={35} color={tintColor} />;
+            },
+          }}
+          name="Go"
+          component={GoScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabelStyle: {
+              fontSize: 16,
+              marginBottom: -10,
+              color: "black",
+            },
+
+            tabBarIcon: ({ focused, tintColor }) => {
+              const iconName = `truck-delivery${focused ? "" : "-outline"}`;
+              return <IconCom name={iconName} size={35} color={tintColor} />;
+            },
+          }}
+          name="Settings"
+          component={DeliverScreen}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
