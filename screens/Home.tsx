@@ -4,15 +4,17 @@ import ListMessage from "../components/chat/ListMessage";
 import InputMessage from "../components/chat/InputMessage";
 import { FontAwesome } from '@expo/vector-icons';
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Scanner from "../components/Scanner";
 import ChatInit from "./ChatInit";
+import ChatOverview from "./ChatOverview";
+import { DataContext } from "../context/DataProvider";
 
 function HomeScreen() {
 
   const [chatStarted, setChatStarted] = useState(false);
   const [scannerOpened, setScannerOpened] = useState(false);
-
+  const {initMessage } = useContext(DataContext);
 
   const handleScanBarcode = () => {
     setScannerOpened(true);
@@ -23,7 +25,8 @@ function HomeScreen() {
     <ChatInit onContinue={() => setChatStarted(true)} />) :
     
     (
-
+      (initMessage === "" ? <ChatOverview  /> :
+      
       <Layout>
         {scannerOpened && (<Scanner />)}
         <ListMessage />
@@ -31,7 +34,7 @@ function HomeScreen() {
         <TouchableOpacity style={styles.button} onPress={() => handleScanBarcode()}>
           <FontAwesome name="barcode" size={24} color="white" />
         </TouchableOpacity>
-      </Layout>
+      </Layout>  )
 
     );
 }

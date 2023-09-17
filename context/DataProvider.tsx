@@ -5,8 +5,8 @@ import { MessageType } from '../types/types';
 interface DataContextType {
   textInput: MessageType;
   setTextInput: (value: MessageType) => void;
-  depth: number;
-  setDepth: (value: number) => void;
+  initMessage: string;
+  setInitMessage: (value: string) => void;
 }
 
 
@@ -22,9 +22,9 @@ export const DataProvider = ({ children }: Props) => {
 
 
   const [textInput, setTextInput] = useState<MessageType>({} as MessageType);
-  const [depth, setDepth] = useState(0)
+  const [initMessage, setInitMessage] = useState("")
   return (
-    <DataContext.Provider value={{ textInput, setTextInput, depth, setDepth }}> 
+    <DataContext.Provider value={{ textInput, setTextInput, initMessage, setInitMessage }}> 
         {children}
     </DataContext.Provider>
   )
