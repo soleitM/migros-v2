@@ -15,41 +15,42 @@ function HomeScreen() {
 
 
   const handleScanBarcode = () => {
+    setScannerOpened(true);
+  };
 
-		setScannerOpened(true);
-	};
 
-  
-  return !chatStarted? (
-    <ChatInit onContinue={() => setChatStarted(true)}/>):(
+  return !chatStarted ? (
+    <ChatInit onContinue={() => setChatStarted(true)} />) :
+    
+    (
 
-       <Layout>
-        {scannerOpened && (<Scanner/>)}
+      <Layout>
+        {scannerOpened && (<Scanner />)}
         <ListMessage />
         <InputMessage />
         <TouchableOpacity style={styles.button} onPress={() => handleScanBarcode()}>
-				<FontAwesome name="barcode" size={24} color="white" />
-			</TouchableOpacity>
-      </Layout> 
+          <FontAwesome name="barcode" size={24} color="white" />
+        </TouchableOpacity>
+      </Layout>
 
-  );
+    );
 }
 
 export default HomeScreen
 
 const styles = StyleSheet.create({
-	button: {
-		flex: 0,
-		justifyContent: 'center',
-		alignItems: 'center',
-		width: '15%',
-		height: 50,
-		marginLeft: 10,
-		marginStart:10,
-		textAlign: 'center',
-		borderColor: '#10ac84',
-		borderWidth: 1,
-		borderRadius: 5,
-		backgroundColor: '#10ac84',
-	},
+  button: {
+    flex: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '15%',
+    height: 50,
+    marginLeft: 10,
+    marginStart: 10,
+    textAlign: 'center',
+    borderColor: '#10ac84',
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: '#10ac84',
+  },
 });

@@ -3,7 +3,6 @@ import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Icon from "react-native-vector-icons/MaterialIcons"; // You may need to install a vector icon library
 import IconCom from "react-native-vector-icons/MaterialCommunityIcons";
 
 import HomeScreen from "./screens/Home";
@@ -14,6 +13,7 @@ import DeliverScreen from "./screens/Deliver";
 
 import { DataProvider } from "./context/DataProvider";
 import ChatInit  from "./screens/ChatInit";
+import ChatOverview from "./screens/ChatOverview";
 
 const Tab = createBottomTabNavigator();
 

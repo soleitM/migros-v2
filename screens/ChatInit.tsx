@@ -9,7 +9,7 @@ function ChatInit(
     {onContinue} : Props
 ) {
 
-
+    
     return (
 
         <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 30, }}>

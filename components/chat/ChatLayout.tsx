@@ -8,7 +8,7 @@ interface Props {
 const Layout = ({ children }: Props) => {
 	return (
 		<View style={styles.container}>
-			<StatusBar backgroundColor={'#222f3e'} barStyle={'light-content'} />
+			<StatusBar  barStyle={'light-content'} />
 			{children}
 		</View>
 	);
@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
 		// justifyContent: 'center',
 		// alignItems: 'center',
 		width:'100%',
-		backgroundColor: '#222f3e',
+		// backgroundColor: '#222f3e',
 	},
 });

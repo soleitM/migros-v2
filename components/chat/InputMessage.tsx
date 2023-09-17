@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
 		backgroundColor: '#222f3e',
 	},
 	button: {
-		flex: 0,
+		flex: 1,
+		maxWidth:60,
 		justifyContent: 'center',
 		alignItems: 'center',
 		width: '15%',
