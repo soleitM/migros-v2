@@ -12,9 +12,8 @@ interface Usage {
 
 export interface MessageType {
     id: string;
-    create: number;
-    model: string;
     text: string;
+    endpoint: string
     user: User;
-    usage: Usage;
+
 };

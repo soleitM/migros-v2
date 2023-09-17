@@ -1,7 +1,5 @@
-import { FlatList, View, StyleSheet, Text, Pressable } from "react-native";
-import IconCom from "react-native-vector-icons/MaterialCommunityIcons";
-import { useContext } from "react";
-import { DataContext } from "../context/DataProvider";
+import { FlatList, View, StyleSheet, } from "react-native";
+
 import ChatInitialItem from "../components/chat/ChatInitialItem";
 import { ChatOverviewData } from "../constants/ChatOverviewData";
 

@@ -18,8 +18,8 @@ const ListMessage = () => {
 
 	 console.log('textInput', textInput.text);
 	
-	 const { data, isLoading } = useFetchMessage(textInput.text);
-
+	 const { data, isLoading } = useFetchMessage(textInput);
+		console.log(data, "data...")
 
 	 console.log('getMessageOutput: ', data.text );
 
@@ -33,7 +33,7 @@ const ListMessage = () => {
 			setMessages((messages) => [...messages, data]);
 		}
 
-	}, [data, data.text]);
+	}, [data, data.text, textInput.text]);
 	
 	console.log('messagesDown', messages.length);
 	console.log('isLoading', isLoading);

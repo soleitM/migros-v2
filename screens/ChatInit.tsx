@@ -3,24 +3,25 @@ import { BalloonDog } from "../assets/BalloonDog";
 
 
 interface Props {
-	onContinue: () => void;
+    onContinue: () => void;
 }
 function ChatInit(
-    {onContinue} : Props
+    { onContinue }: Props
 ) {
 
-    
+
     return (
 
         <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 30, }}>
-            <Text style={{ color: "#F59E0B" }}>Your AI Assistant Migrochip</Text>
+            <Text style={{ color: "#F59E0B", fontSize: 22, fontWeight: '600' }}>Your AI Assistant Migrochip</Text>
             <Text style={{ width: '60%', textAlign: 'center', marginTop: 10 }}>Using this software,you can ask you
                 questions and receive articles using
-                artificial intelligence assistant</Text>
+                artificial intelligence assistant
+            </Text>
             <BalloonDog />
-            <Pressable style={styles.button}  onPress={onContinue} >
-                 <Text>Continue</Text>
-                 </Pressable>
+            <Pressable style={styles.button} onPress={onContinue} >
+                <Text>Continue</Text>
+            </Pressable>
         </View>
     )
 }

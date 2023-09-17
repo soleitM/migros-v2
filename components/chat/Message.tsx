@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 
 import { MessageType } from '../../types/types';
@@ -10,16 +10,19 @@ type MessageProps = {
 
 const Message = ({ message }: MessageProps) => {
 
-	const copyToClipboard = async  () => {
+	const copyToClipboard = async () => {
 		await Clipboard.setStringAsync(message.text);
 		// ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
 	};
 
 	return (
-		<View style={ message.user.name === 'you' ? styles.messageyou : styles.messagechatgpt }>
+		<View style={message.user.name === 'you' ? styles.messageyou : styles.messagechatgpt}>
 			<View style={styles.profile}>
-				<Image style={styles.Image} source={{ uri: message.user.avatar }} />
-				<Text style={styles.author}>{message.user.name}</Text>
+				{message.user.name === "you" ?
+					<Image style={styles.Image} source={{ uri: message.user.avatar }} /> :
+
+					<Image style={styles.Image} source={{ uri: "https://www.migros.ch/assets/mgb-favicons/icon-512x512.png" }} />
+				}				<Text style={styles.author}>{message.user.name}</Text>
 			</View>
 			<TouchableOpacity onPress={() => copyToClipboard()}>
 				<Text style={styles.text}>{message.text}</Text>

@@ -4,7 +4,7 @@ import ListMessage from "../components/chat/ListMessage";
 import InputMessage from "../components/chat/InputMessage";
 import { FontAwesome } from '@expo/vector-icons';
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Scanner from "../components/Scanner";
 import ChatInit from "./ChatInit";
 import ChatOverview from "./ChatOverview";
@@ -14,27 +14,28 @@ function HomeScreen() {
 
   const [chatStarted, setChatStarted] = useState(false);
   const [scannerOpened, setScannerOpened] = useState(false);
-  const {initMessage } = useContext(DataContext);
+  const { initMessage, setTextInput, endpoint } = useContext(DataContext);
 
   const handleScanBarcode = () => {
     setScannerOpened(true);
   };
 
+  // useEffect(() => { setTextInput(initMessage) }, [initMessage])
 
   return !chatStarted ? (
     <ChatInit onContinue={() => setChatStarted(true)} />) :
-    
+
     (
-      (initMessage === "" ? <ChatOverview  /> :
-      
-      <Layout>
-        {scannerOpened && (<Scanner />)}
-        <ListMessage />
-        <InputMessage />
-        <TouchableOpacity style={styles.button} onPress={() => handleScanBarcode()}>
-          <FontAwesome name="barcode" size={24} color="white" />
-        </TouchableOpacity>
-      </Layout>  )
+      (initMessage === "" ? <ChatOverview /> :
+
+        <Layout>
+          {scannerOpened && (<Scanner />)}
+          <ListMessage />
+          <InputMessage apiEndpoint={endpoint}  />
+          <TouchableOpacity style={styles.button} onPress={() => handleScanBarcode()}>
+            <FontAwesome name="barcode" size={24} color="white" />
+          </TouchableOpacity>
+        </Layout>)
 
     );
 }
@@ -43,7 +44,8 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
   button: {
-    flex: 0,
+    flex: 0 ,
+    flexBasis:'8%',
     justifyContent: 'center',
     alignItems: 'center',
     width: '15%',

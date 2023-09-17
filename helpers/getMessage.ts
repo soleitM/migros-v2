@@ -1,30 +1,23 @@
 
 import { MessageType } from '../types/types';
 
-export const getMessage = async (message: string) => {
-
-    console.log('getMessageInput: ', message );
-
-    const body = {
-        model: 'text-davinci-003',
-        message: message || '',
-        max_tokens: 1000,
-        temperature: 0.5
-    };
+export const getMessage = async (message: MessageType) => {
 
     const fetchMessage = async (): Promise<MessageType> => {
 
-        // TODO API URL 
-        const response = await globalThis.fetch(`https://some/api/chat`, {
-            method: 'POST',
+        // @ts-ignore
+        const response = await globalThis.fetch(`${message.endpoint?.apiEndpoint}`, {
+            method: 'GET',
+           
             headers: {
                 'Content-Type': 'application/json',
+
             },
-            body: JSON.stringify(body)
+            // body: JSON.stringify(message.text)
         });
 
-        const { data } = await response.json();
-
+        const data  = await response.json();
+        console.log(data, "data...");
         return data;
     };
     

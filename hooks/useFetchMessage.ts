@@ -8,37 +8,42 @@ type state = {
   isLoading: boolean;
 };
 
-export const useFetchMessage = (message: string): state => {
+export const useFetchMessage = (messageFetchData: MessageType ): state => {
+
+  console.log(messageFetchData, "mesageFetch..")
+
+
   const [state, setState] = useState<state>({
     data: {} as MessageType,
     isLoading: true,
   });
 
-  if (message === "") {
+  if (messageFetchData.text === "") {
     return {
       data: {} as MessageType,
       isLoading: false,
     };
   }
 
-  // const loadMessage = async () => {
-  //     const data = await getMessage(message);
-  //     setState({
-  //         data,
-  //         isLoading: false,
-  //     });
+  const loadMessage = async () => {
+      const data = await getMessage(messageFetchData);
+      setState({
+          data,
+          isLoading: false,
+      });
+  };
+     loadMessage()
+
+  // const loadMockMessage = async () => {
+  //   const data = await getMockMessages(message);
+  //   console.log(data, "data mocked")
+  //   setState({ data, isLoading: false });
   // };
 
-  const loadMockMessage = async () => {
-    const data = await getMockMessages(message);
-    console.log(data, "data mocked")
-    setState({ data, isLoading: false });
-  };
-
-  useEffect(() => {
-    // loadMessage();
-    loadMockMessage();
-  }, [message]);
+  // useEffect(() => {
+  //    loadMessage();
+  //   // loadMockMessage();
+  // }, [messageFetchData.text]);
 
   return state;
 };

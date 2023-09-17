@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import uuid from 'react-uuid';
 import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
@@ -7,28 +7,25 @@ import { MessageType } from '../../types/types'
 
 import { DataContext } from '../../context/DataProvider';
 
-const InputMessage = () => {
-
-	const { setTextInput } = useContext<any>(DataContext);
+const InputMessage = (apiEndpoint) => {
+		console.log(apiEndpoint, "endi")
+	const { setTextInput, initMessage } = useContext<any>(DataContext);
 	const [text, setText] = useState<string>('');
+
+	useEffect(() => setText(initMessage), [initMessage])
+
 	const handleSendMessage = () => {
 
 		if (!text.trim()) return;
 
 		setTextInput({
 			id: uuid(),
-			create: new Date().getTime(),
-			model: 'youchat',
 			text: text.trim(),
 			user: {
 				name: 'you',
 				avatar: 'https://i.pravatar.cc/100?u=A08',
 			},
-			usage: {
-				prompt_tokens: 0,
-				completion_tokens: 0,
-				total_tokens: 0,
-			},
+			endpoint: apiEndpoint
 		});
 		setText('');
 	};
@@ -61,22 +58,22 @@ const styles = StyleSheet.create({
 		height: 50,
 		padding: 10,
 		fontSize: 14,
-		textAlign: 'center',
-		color: '#ffffff',
+		textAlign: 'left',
+		color: '#000',
 		borderColor: '#10ac84',
 		borderWidth: 1,
 		borderRadius: 5,
-		backgroundColor: '#222f3e',
+		// backgroundColor: '#222f3e',
 	},
 	button: {
 		flex: 1,
-		maxWidth:60,
+		maxWidth: 60,
 		justifyContent: 'center',
 		alignItems: 'center',
 		width: '15%',
 		height: 50,
 		marginLeft: 10,
-		marginEnd:10,
+		marginEnd: 10,
 		textAlign: 'center',
 		borderColor: '#10ac84',
 		borderWidth: 1,

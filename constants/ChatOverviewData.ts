@@ -1,4 +1,3 @@
-
 type ChatText = {
   text: string;
 };
@@ -7,26 +6,41 @@ export type ChatItem = {
   id: number;
   title: string;
   Icon: string;
+  endpoint: string;
   texts: ChatText[];
 };
 
 export const ChatOverviewData: Array<ChatItem> = [
   {
     id: 1,
-    title: "some",
-    Icon:  "pencil-outline",
-    texts: [{ text: "Some text" }, { text: "Some other Text" }],
+    title: "Recommendations",
+    Icon: "pencil-outline",
+    endpoint:
+      "https://best-pfwdhnzdha-ey.a.run.app/receive_user_relevant/100009",
+    texts: [
+      { text: "What is the most popular product" },
+      { text: "What are the most popular products in Switzerland" },
+    ],
   },
   {
-    id:2,
-    title: "some2",
+    id: 2,
+    title: "Cook",
     Icon: "pencil-ruler",
-    texts: [{ text: "Some text 2" }, { text: "Some other Text 2" }],
+    endpoint: "https://best-pfwdhnzdha-ey.a.run.app/add_something/kaffee",
+    texts: [
+      { text: "Create the recipe from my wishlist " },
+      { text: "What to buy for a healthy breakfast" },
+    ],
   },
   {
-    id:3,
-    title: "some3",
+    id: 3,
+    title: "Live eco-friendly",
     Icon: "pickaxe",
-    texts: [{ text: "Some text3" }, { text: "Some other Text3" }],
+    endpoint:
+      "https://best-pfwdhnzdha-ey.a.run.app/get_specific_recipe/healthybreakfast",
+    texts: [
+      { text: "Find sustainable alternative coffee beans" },
+      { text: "Which products have the biggest impact " },
+    ],
   },
 ];
