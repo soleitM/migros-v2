@@ -4,11 +4,7 @@ import ChatInitialItem from "../components/chat/ChatInitialItem";
 import { ChatOverviewData } from "../constants/ChatOverviewData";
 
 
-
-
     function ChatOverview() {
-
-
 
     return (
 
@@ -29,7 +25,6 @@ const styles = StyleSheet.create({
     listContainer: {
         flex: 1,
         width: '100%',
-        // backgroundColor: '#222f3e',
         marginBottom: 35,
     },
 });

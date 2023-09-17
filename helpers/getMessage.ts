@@ -13,11 +13,10 @@ export const getMessage = async (message: MessageType) => {
                 'Content-Type': 'application/json',
 
             },
-            // body: JSON.stringify(message.text)
         });
 
         const data  = await response.json();
-        console.log(data, "data...");
+
         return data;
     };
     

@@ -10,9 +10,6 @@ type state = {
 
 export const useFetchMessage = (messageFetchData: MessageType ): state => {
 
-  console.log(messageFetchData, "mesageFetch..")
-
-
   const [state, setState] = useState<state>({
     data: {} as MessageType,
     isLoading: true,
@@ -33,17 +30,6 @@ export const useFetchMessage = (messageFetchData: MessageType ): state => {
       });
   };
      loadMessage()
-
-  // const loadMockMessage = async () => {
-  //   const data = await getMockMessages(message);
-  //   console.log(data, "data mocked")
-  //   setState({ data, isLoading: false });
-  // };
-
-  // useEffect(() => {
-  //    loadMessage();
-  //   // loadMockMessage();
-  // }, [messageFetchData.text]);
 
   return state;
 };

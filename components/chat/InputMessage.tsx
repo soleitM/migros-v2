@@ -1,14 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import uuid from 'react-uuid';
 import { FontAwesome } from '@expo/vector-icons';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 
-import { MessageType } from '../../types/types'
 
 import { DataContext } from '../../context/DataProvider';
 
 const InputMessage = (apiEndpoint) => {
-		console.log(apiEndpoint, "endi")
 	const { setTextInput, initMessage } = useContext<any>(DataContext);
 	const [text, setText] = useState<string>('');
 
@@ -63,7 +61,6 @@ const styles = StyleSheet.create({
 		borderColor: '#10ac84',
 		borderWidth: 1,
 		borderRadius: 5,
-		// backgroundColor: '#222f3e',
 	},
 	button: {
 		flex: 1,

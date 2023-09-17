@@ -1,4 +1,4 @@
-import React, { useState, createContext, useReducer } from 'react';
+import React, { useState, createContext } from 'react';
 
 import { MessageType } from '../types/types';
 

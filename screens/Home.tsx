@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {  TouchableOpacity, StyleSheet } from "react-native";
 import Layout from "../components/chat/ChatLayout";
 import ListMessage from "../components/chat/ListMessage";
 import InputMessage from "../components/chat/InputMessage";
 import { FontAwesome } from '@expo/vector-icons';
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Scanner from "../components/Scanner";
 import ChatInit from "./ChatInit";
 import ChatOverview from "./ChatOverview";
@@ -14,13 +14,11 @@ function HomeScreen() {
 
   const [chatStarted, setChatStarted] = useState(false);
   const [scannerOpened, setScannerOpened] = useState(false);
-  const { initMessage, setTextInput, endpoint } = useContext(DataContext);
+  const { initMessage, endpoint } = useContext(DataContext);
 
   const handleScanBarcode = () => {
     setScannerOpened(true);
   };
-
-  // useEffect(() => { setTextInput(initMessage) }, [initMessage])
 
   return !chatStarted ? (
     <ChatInit onContinue={() => setChatStarted(true)} />) :

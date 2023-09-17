@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
-import uuid from 'react-uuid';
 
- import { messagesData } from '../../data/messages';
 import { useFetchMessage } from '../../hooks/useFetchMessage';
 import Message from './Message';
 import { DataContext } from '../../context/DataProvider';
@@ -12,16 +10,11 @@ import { MessageType } from '../../types/types';
 const ListMessage = () => {
 
 	const [messages, setMessages] = useState<MessageType[]>([]);
-	console.log('messagesSide', messages.length);
 	
 	const { textInput } = useContext<any>(DataContext);
-
-	 console.log('textInput', textInput.text);
 	
-	 const { data, isLoading } = useFetchMessage(textInput);
-		console.log(data, "data...")
+	 const { data } = useFetchMessage(textInput);
 
-	 console.log('getMessageOutput: ', data.text );
 
 	useEffect(() => {
 		
@@ -35,8 +28,6 @@ const ListMessage = () => {
 
 	}, [data, data.text, textInput.text]);
 	
-	console.log('messagesDown', messages.length);
-	console.log('isLoading', isLoading);
 
 	return (
 		<View>
@@ -62,7 +53,6 @@ const styles = StyleSheet.create({
 	listContainer: {
 		flex: 1,
 		width: '100%',
-		// backgroundColor: '#222f3e',
 		marginBottom: 35,
 	},
 });

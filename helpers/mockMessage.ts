@@ -4,8 +4,8 @@ import { MessageType } from "../types/types";
 export async function getMockMessages(message: string): Promise<MessageType> {
  
 
-  return { text: "hello world ", id: uuid(), create: 2,
-        model: "some", user: {name: "MigrosBot", avatar: "avaterString"},
-        usage: {prompt_tokens: 2, completion_tokens: 22, total_tokens: 33}
+  return { text: "hello world ", id: uuid(),
+        user: {name: "MigrosBot", avatar: "avaterString"},
+        endpoint: ""
      };
 }

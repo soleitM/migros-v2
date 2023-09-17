@@ -5,21 +5,13 @@ import { DataContext } from "../../context/DataProvider";
 import { ChatItem } from "../../constants/ChatOverviewData";
 
 
-
-
 function ChatInitialItem({ data }: { data: ChatItem }) {
     const { setInitMessage, setEndpoint } = useContext(DataContext);
 
     const selectedInitialMessage = (message: string, endpoint: string) => {
-        console.log(endpoint, data, "selected...")
         setEndpoint(endpoint)
         setInitMessage(message);
     }
-
-
-
-
-
 
     return (
         <View style={{ display: 'flex', marginTop: 5, justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
