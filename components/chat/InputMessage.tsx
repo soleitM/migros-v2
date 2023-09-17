@@ -6,7 +6,7 @@ import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 
 import { DataContext } from '../../context/DataProvider';
 
-const InputMessage = (apiEndpoint) => {
+const InputMessage = (apiEndpoint:string) => {
 	const { setTextInput, initMessage } = useContext<any>(DataContext);
 	const [text, setText] = useState<string>('');
 

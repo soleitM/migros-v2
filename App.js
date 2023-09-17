@@ -10,10 +10,7 @@ import ListeScreen from "./screens/Liste";
 import WalletScreen from "./screens/Wallet";
 import GoScreen from "./screens/Go";
 import DeliverScreen from "./screens/Deliver";
-
 import { DataProvider } from "./context/DataProvider";
-import ChatInit  from "./screens/ChatInit";
-import ChatOverview from "./screens/ChatOverview";
 
 const Tab = createBottomTabNavigator();
 

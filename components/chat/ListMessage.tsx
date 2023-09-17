@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
-
+import { StyleSheet, View, FlatList, RefreshControl } from 'react-native'
 import { useFetchMessage } from '../../hooks/useFetchMessage';
 import Message from './Message';
 import { DataContext } from '../../context/DataProvider';
@@ -9,12 +8,9 @@ import { MessageType } from '../../types/types';
 
 const ListMessage = () => {
 
-	const [messages, setMessages] = useState<MessageType[]>([]);
-	
+	const [messages, setMessages] = useState<MessageType[]>([]);	
 	const { textInput } = useContext<any>(DataContext);
-	
-	 const { data } = useFetchMessage(textInput);
-
+	const { data } = useFetchMessage(textInput);
 
 	useEffect(() => {
 		
@@ -28,7 +24,6 @@ const ListMessage = () => {
 
 	}, [data, data.text, textInput.text]);
 	
-
 	return (
 		<View>
 			<FlatList
